@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  apollo-portal:                    ##容器服务名
+    container_name: apollo-portal   ##容器名
+    build: ./                           ##Dockerfile路径
+    image: apollo-portal:1.3.0          ##镜像名
+    restart: always 
+    ports:
+      - "8070:8070"
+      - "9070:9070"
+    volumes:
+      - "/opt/logs/100003173/portal8070:/opt/logs/100003173"

@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  apollo-configservice-pro:                                         ##容器服务名
+    container_name: apollo-configservice-zhuzhu                   ##容器名
+    build:  apollo-configservice/                               ##Dockerfile路径
+    image: apollo-configservice:1.3.0                           ##镜像名
+    restart: always
+    ports:
+      - "8085:8085"
+    volumes:
+      - "/opt/logs/100003171/zhuzhu8085:/opt/logs/100003171"
+
+  apollo-adminservice-pro:
+    container_name: apollo-adminservice-zhuzhu 
+    build: apollo-adminservice/ 
+    image: apollo-adminservice:1.3.0
+    restart: always
+    ports:
+      - "8095:8095"
+    depends_on:
+      - apollo-configservice-pro
+    volumes:
+      - "/opt/logs/100003172/zhuzhu8095:/opt/logs/100003172"

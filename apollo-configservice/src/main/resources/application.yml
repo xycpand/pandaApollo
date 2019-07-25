@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: apollo-configservice
+  profiles:
+    active: ${apollo_profile}
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+eureka:
+    instance:
+        preferIpAddress: true
+        ip-address: 192.168.80.237
+ctrip:
+  appid: 100003171
+  
+server:
+  port: 8085
+
+logging:
+  file: /opt/logs/100003171/apollo-configservice.log

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: apollo-adminservice
+  profiles:
+    active: ${apollo_profile}
+  cloud:
+    inetutils:
+      ignoredInterfaces:
+        - docker0
+        - veth.*
+eureka:
+    instance:
+        preferIpAddress: true
+        ip-address: 192.168.80.237
+ctrip:
+  appid: 100003172
+  
+server:
+  port: 8095
+  
+logging:
+  file: /opt/logs/100003172/apollo-adminservice.log
